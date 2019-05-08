@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="type/type-template.html :: headFiles"></div>
+    <title>All Menu Type</title>
+</head>
+<body>
+
+<nav th:replace="type/type-template.html :: navBar"></nav>
+<ul th:replace="type/type-template.html :: crud"></ul>
+<!--    START HERE-->
+
+
+<div th:switch="${menutype}">
+    <h2 th:case="null">Sorry No Menu Type Found</h2>
+    <div th:case="*">
+        <p class="headers"> All Menu Types</p>
+        <div class="container">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Type</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="mtype : ${menutype}">
+                    <td th:text="${mtype.type}"></td>
+
+                    <td>
+                        <button class="btn btn-warning">
+                            <a class="text-white" th:href="@{/type/update/{id}(id=${mtype.id})}">Edit</a>
+                        </button>
+                    </td>
+
+                    <td>
+                        <button class="btn btn-danger">
+                            <a class="text-white" th:href="@{/type/delete/{id}(id=${mtype.id})}">Delete</a>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<!--END HERE-->
+<div class="my-5"></div>
+<div th:replace="type/type-template.html :: footerr"></div>
+<div th:replace="type/type-template.html :: scriptss"></div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+
+
+.mainimg{
+    height: 70vh;
+    margin-bottom: 20px;
+    box-shadow: 10px 10px 50px gray;
+   
+    
+}
+
+.aboutus{
+    text-align: center;
+}
+
+/* this is for the awards */
+
+.award-img img{
+    width: 250px;
+    box-shadow: 10px 10px 50px gray;
+}
+
+.holder{
+    padding-left: 50px;
+    width: 90%;
+}

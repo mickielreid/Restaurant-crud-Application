@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head >
+    <th:block th:fragment="headFiles" >
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+              integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+              integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/index.css">
+
+
+        <!--    <link rel="apple-touch-icon" sizes="180x180" href="static/img/fav/apple-touch-icon.png">-->
+        <!--    <link rel="icon" type="image/png" sizes="32x32" href="static/img/fav/favicon-32x32.png">-->
+        <!--    <link rel="icon" type="image/png" sizes="16x16" href="static/img/fav/favicon-16x16.png">-->
+        <!--    <link rel="manifest" href="static/img/fav/site.webmanifest">-->
+        <!--    <link rel="mask-icon" href="static/img/fav/safari-pinned-tab.svg" color="#5bbad5">-->
+        <!--    <meta name="msapplication-TileColor" content="#00aba9">-->
+        <!--    <meta name="theme-color" content="#ffffff">-->
+
+
+        <!--    <title th:text="${title}">Luxe Main Home</title>-->
+    </th:block>
+</head>
+
+<body>
+
+<nav th:fragment="navBar" class="navbar navbar-expand-sm navbar-primary bg-light">
+    <div class="container">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <a class="navbar-brand" href="#">Menu Type</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/item/read}">Menu Item</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/res/read}" >Reservation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/daily/read}">Daily special</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/type/list-all}">Menu Type</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/make-res}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--end nav-->
+
+<!-- different pages -->
+<ul th:fragment="crud" class="nav nav-fill nav-pills mx-5 my-5">
+    <li class="nav-item mr-3">
+        <button class="btn btn-success">
+            <a class="text-white" th:href="@{/type/add-type}" >Create</a>
+        </button>
+    </li>
+
+
+    <li class="nav-item mr-1">
+        <button class="btn btn-info">
+            <a class="text-white" th:href="@{/type/list-all}">Read</a>
+        </button>
+    </li>
+
+</ul>
+
+
+
+
+
+<!-- this is the footer -->
+<div th:fragment="footerr" class="footer">
+
+    <div class="social-media container">
+
+        <i class="fab fa-facebook facebook"></i>
+        <i class="fab fa-instagram instagram"></i>
+        <i class="fab fa-twitter twitter"></i>
+
+        <span> Copyright &copy; 2025 by LUXE MAIN </span>
+
+        <a th:href="@{/home}" class="nav-link footlinks"> Home </a>
+        <a th:href="@{/about}"  class="nav-link footlinks"> About </a>
+        <a href="/menu?id=1" class="nav-link footlinks"> Menu </a>
+        <a th:href="@{/daily-special}" class="nav-link footlinks"> Daily Special </a>
+        <a th:href="@{/make-res}" class="nav-link footlinks"> Make a Reservation </a>
+
+    </div>
+
+</div>
+
+<th:block th:fragment="scriptss">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+    <script src="templates/script.js"></script>
+</th:block>
+
+</body>
+
+</html>

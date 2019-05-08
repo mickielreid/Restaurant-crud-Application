@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="res/res-template.html :: headFiles"></div>
+    <title>Reservations</title>
+</head>
+<body>
+
+<nav th:replace="res/res-template.html :: navBar"></nav>
+<ul th:replace="res/res-template.html :: crud"></ul>
+<!--    START HERE-->
+
+<div th:switch="${res}">
+    <h2 th:case="null">Sorry No Menu Item Found</h2>
+    <div th:case="*">
+        <p class="headers" >All Reservations</p>
+
+        <!--    this allow to serarch by name-->
+        <div class="container">
+            <form class="form-inline" th:action="@{/res/search}"  method="get">
+                <div class="mx-auto">
+                    <input class="form-control mr-2" type="date" th:name="date" placeholder="Reserved Date"/>
+
+                    <button class="btn btn-success " type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <br>
+
+        <div class="container">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Reserved Date</th>
+                    <th># Of Guests</th>
+                    <th>Email</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="r : ${res}">
+                    <td th:text="${r.firstName}"></td>
+                    <td th:text="${r.lastName}"></td>
+                    <td th:text="${r.reservedDate}"></td>
+                    <td th:text="${r.guests}"></td>
+                    <td th:text="${r.email}"></td>
+
+
+                    <td>
+                        <button class="btn btn-warning">
+                            <a class="text-white" th:href="@{/res/update/{id}(id=${r.id})}">Edit</a>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger">
+                            <a class="text-white" th:href="@{/res/delete/{id}(id=${r.id})}">Delete</a>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<!--END HERE-->
+<div class="my-5"></div>
+<div th:replace="res/res-template.html :: footerr"></div>
+<div th:replace="res/res-template.html :: scriptss"></div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="special/special-template.html :: headFiles"></div>
+    <title>All Special</title>
+</head>
+<body>
+
+<nav th:replace="special/special-template.html :: navBar"></nav>
+<ul th:replace="special/special-template.html:: crud"></ul>
+<!--    START HERE-->
+<div class="container">
+    <form class="form-inline" th:action="@{/daily/search}" method="get">
+        <div class="mx-auto">
+            <input class="form-control mr-2" type="date" placeholder="date" th:name="day"/>
+            <button class="btn btn-primary " type="submit">Search</button>
+        </div>
+    </form>
+</div>
+
+
+<div th:switch="${daily}">
+    <h2 th:case="null">Sorry No Daily Special Found</h2>
+    <div th:case="*">
+        <p class="headers">All Daily Special</p>
+        <div class="container">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th> Name</th>
+                <th> Original Price</th>
+                <th> Special Price</th>
+                <th>Day Of Special</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="d : ${daily}">
+
+                <td>
+                    <a class="nav-link" th:href="@{/item/search (name=${d.menuItem.name}) }"
+                       th:text="${d.menuItem.name}"> f </a>
+                </td> <!--this searches for the click on daily special from the list of menu items -->
+                <td th:text="${d.menuItem.price}"></td>
+                <td th:text="${d.specialPrice}"></td>
+                <td th:text="${d.day}"></td>
+
+                <td>
+                    <button class="btn btn-warning">
+                        <a class="text-white" th:href="@{/daily/update/{id}(id=${d.id})}">Edit</a>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-danger">
+                        <a class="text-white" th:href="@{/daily/delete/{id}(id=${d.id})}">Delete</a>
+                    </button>
+                </td>
+
+
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+</div>
+
+<!--END HERE-->
+<div class="my-5"></div>
+<div th:replace="special/special-template.html :: footerr"></div>
+<div th:replace="special/special-template.html :: scriptss"></div>
+</body>
+</html>

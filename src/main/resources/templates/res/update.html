@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="res/res-template.html :: headFiles"></div>
+    <title>Update Reservation</title>
+</head>
+<body>
+
+<nav th:replace="res/res-template.html :: navBar"></nav>
+<ul th:replace="res/res-template.html :: crud"></ul>
+<!--    START HERE-->
+
+
+<p class="headers">Update Reservation</p>
+<div class="container">
+    <form th:action="@{/res/update/{id}(id = ${id}) }" th:object="${reservation}" method="post">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input required class="form-control" type="text" th:field="*{firstName}" placeholder="First Name"/>
+            <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="text-danger"></div>
+        </div> <!--New Field-->
+
+
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input required class="form-control" type="text" th:field="*{lastName}" placeholder="Last Name"/>
+            <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="text-danger"></div>
+        </div> <!--New Field-->
+
+
+        <div class="form-group">
+            <label for="reservedDate">reservedDate</label>
+            <input required class="form-control" type="date" th:field="*{reservedDate}" placeholder="reservedDate"/>
+            <div th:if="${#fields.hasErrors('reservedDate')}" th:errors="*{reservedDate}" class="text-danger"></div>
+        </div> <!--New Field-->
+
+
+        <div class="form-group">
+            <label for="guests">guests</label>
+            <input required class="form-control" type="number" th:field="*{guests}" placeholder="guests"/>
+            <div th:if="${#fields.hasErrors('guests')}" th:errors="*{guests}" class="text-danger"></div>
+        </div> <!--New Field-->
+
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input required class="form-control" type="email" th:field="*{email}" placeholder="Email"/>
+            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></div>
+        </div> <!--New Field-->
+
+
+        <button class="btn btn-primary btn-block" type="submit">Update Reservation</button>
+
+    </form>
+</div>
+<!--END HERE-->
+<div class="my-5"></div>
+<div th:replace="res/res-template.html :: footerr"></div>
+<div th:replace="res/res-template.html :: scriptss"></div>
+</body>
+</html>

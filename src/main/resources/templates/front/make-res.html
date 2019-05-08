@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div  th:replace="templates/index.html :: headFiles"></div>
+    <title>Home</title>
+</head>
+<body>
+
+<nav th:replace="templates/index.html :: navBar"></nav>
+<!--    START HERE-->
+<p class="headers"> Make A Reservation </p>
+<br/>
+<p class="text-center text-muted text-small">Each Bite Is A Different Experience</p>
+<br/>
+
+<div class="container my-5">
+    <form th:action="@{/make-res}" th:object="${reservation}" method="post">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input class="form-control" type="text" th:field="*{firstName}" placeholder="first Name"/>
+            <div  th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="text-danger">
+                Password does not match
+            </div>
+        </div> <!--New Field-->
+
+        <div class="form-group">
+            <label for="lastName">First Name</label>
+            <input class="form-control" type="text" th:field="*{lastName}" placeholder="lastName"/>
+            <div  th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="text-danger">
+                Password does not match
+            </div>
+        </div> <!--New Field-->
+
+        <div class="form-group">
+            <label for="reservedDate">Reserved Date</label>
+            <input class="form-control" th:field="*{reservedDate}" type="date" placeholder="reservedDate"/>
+            <div  th:if="${#fields.hasErrors('reservedDate')}" th:errors="*{reservedDate}" class="text-danger">
+                Password does not match
+            </div>
+        </div> <!--New Field-->
+
+        <div class="form-group">
+            <label for="guests">Guests</label>
+            <input class="form-control" th:field="*{guests}" type="number" placeholder="guests"/>
+            <div  th:if="${#fields.hasErrors('guests')}" th:errors="*{guests}" class="text-danger">
+                Password does not match
+            </div>
+        </div> <!--New Field-->
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" th:field="*{email}" type="email" placeholder="email" required/>
+            <div  th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger">
+                Password does not match
+            </div>
+        </div> <!--New Field-->
+
+
+
+
+        <button class="btn btn-primary btn-block" type="submit">Submit</button>
+
+
+
+    </form>
+
+</div>
+
+
+<!--END HERE-->
+
+
+
+<div th:replace="templates/index.html :: footerr"></div>
+<div th:replace="templates/index.html :: scriptss"></div>
+</body>
+</html>

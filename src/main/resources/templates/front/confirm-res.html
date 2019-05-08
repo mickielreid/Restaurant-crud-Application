@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div  th:replace="templates/index.html :: headFiles"></div>
+    <title>Confirmation Of Reservation</title>
+</head>
+<body>
+
+<nav th:replace="templates/index.html :: navBar"></nav>
+<!--    START HERE-->
+<br>
+<br>
+
+<div class="mb-5"></div>
+
+<p class="h4 text-center m-3" th:text="'Thanks For Making Reservation for ' + ${res.reservedDate}"></p>
+
+<p class="h4 text-center" th:text="'We will send you a email confirmation to your email at  ' + ${res.email} "></p>
+
+<div class="mb-5"></div>
+<!--END HERE-->
+
+
+
+<div th:replace="templates/index.html :: footerr"></div>
+<div th:replace="templates/index.html :: scriptss"></div>
+</body>
+</html>

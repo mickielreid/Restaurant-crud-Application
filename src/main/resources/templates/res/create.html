@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create A New Reservation</title>
+</head>
+<body>
+    <form th:action="@{/res/create/ }" th:object="${reservation}" method="post">
+        <label for="firstName">First Name</label>
+        <input type="text" th:field="*{firstName}" placeholder="first Name"/>
+        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"> </span>
+
+            <br/>
+            <br/>
+        <label for="lastName">Last Name</label>
+        <input type="text"  th:field="*{lastName}" placeholder="last Name"/>
+        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"> </span>
+
+        <br/>
+        <br/>
+
+        <label for="reservedDate">Reserved Date</label>
+        <input th:field="*{reservedDate}" type="date" placeholder="reservedDate"/>
+        <span th:if="${#fields.hasErrors('reservedDate')}" th:errors="*{reservedDate}"> </span>
+
+        <br/>
+        <br/>
+
+        <label for="guests">Guests</label>
+        <input th:field="*{guests}" type="number" placeholder="guests"/>
+        <span th:if="${#fields.hasErrors('guests')}" th:errors="*{guests}"> </span>
+
+        <br/>
+        <br/>
+
+        <label for="email">Email</label>
+        <input th:field="*{email}" type="email" placeholder="email" required/>
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> </span>
+
+        <br/>
+        <br/>
+
+
+        <input type="submit" value="update Type" />
+
+    </form>
+
+</body>
+</html>

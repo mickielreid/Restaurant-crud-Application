@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div  th:replace="item/item-template.html :: headFiles"></div>
+    <title>Home</title>
+</head>
+<body>
+
+<nav th:replace="item/item-template.html :: navBar"></nav>
+<ul th:replace="item/item-template.html :: crud"></ul>
+<!--    START HERE-->
+
+<!--    this allow to serarch by name-->
+<div class="container">
+    <form class="form-inline" th:action="@{/item/search}"  method="get">
+        <div class="mx-auto">
+            <input class="form-control mr-2" type="search" th:name="name" placeholder="Item Name"/>
+
+            <button class="btn btn-primary " type="submit">Search</button>
+        </div>
+    </form>
+</div>
+
+    <div class="m-5" th:switch="${menuitem}">
+        <h2 class="text-danger text-center" th:case="null">Sorry No Menu Item Was Found</h2>
+        <div th:case="*">
+            <p class="headers text-center">All Menu Types</p>
+
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Menu Type</th>
+                    <th>Status</th>
+                    <th>Image Url</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="item : ${menuitem}">
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.description}"></td>
+                    <td th:text="${item.price}"></td>
+                    <td th:text="${item.menuType.type}"></td>
+                    <td th:text="${item.active}"></td>
+                    <td th:text="${item.imageUrl}"></td>
+
+                    <td> <button class="btn btn-primary"><a class="text-white" th:href="@{/item/update/{id}(id=${item.id})}">Edit</a></button> </td>
+                    <td>
+                        <button class="btn btn-danger">
+                            <a class="text-white" th:href="@{/item/delete/{id}(id=${item.id})}">Delete</a>
+                        </button>
+                    </td>
+                    <td>
+
+                            <a th:href="@{/daily/create/{item-id}(item-id=${item.id})}">Add To Special</a>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+<!--    <h3><a th:href="@{/item/create}">Add a new menu item</a></h3>-->
+<!--END HERE-->
+
+
+<div class="my-5"></div>
+<div th:replace="item/item-template.html :: footerr"></div>
+<div th:replace="item/item-template.html :: scriptss"></div>
+</body>
+</html>

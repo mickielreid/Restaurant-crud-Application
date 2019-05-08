@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="templates/index.html :: headFiles"></div>
+    <title>Daily Special</title>
+</head>
+<body>
+
+<nav th:replace="templates/index.html :: navBar"></nav>
+<!--    START HERE-->
+<div th:if="${items.isEmpty()}">
+    <p class="text-danger text-center h2">Sorry We Do Not Have Any Special For Today</p>
+</div>
+
+
+<div th:unless="${items.isEmpty()}">
+    <p class="headers " th:text="'Daily Special For ' + ${#dates.format(#dates.createNow(), 'MMM dd yyyy')}"> </p>
+</div>
+<br>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 mb-3" th:each="it : ${items}">
+            <div class="card">
+                <img style="height:300px" class="card-img-top img-fluid" th:src="${it.menuItem.imageUrl}" alt="Menu Image">
+                <div class="card-body">
+                    <h4 th:text="${it.menuItem.name}" class="card-title text-center"> Menu Name </h4>
+                    <p th:text="${it.menuItem.description}" class="card-text text-center">
+                        Menu Description
+                    </p>
+                </div>
+                <p class="card-text text-center">
+
+                    <small th:text="'Was $ ' + ${it.menuItem.price}" class="text-muted ">Perevious Price</small>
+                </p> <!--this section is for pervous price -->
+                <div th:text=" '$' + ${it.specialPrice}" class="card-footer  text-center bg-primary text-white">
+                    $200
+                </div> <!--this is for the current price-->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--END HERE-->
+
+
+<div th:replace="templates/index.html :: footerr"></div>
+<div th:replace="templates/index.html :: scriptss"></div>
+</body>
+</html>

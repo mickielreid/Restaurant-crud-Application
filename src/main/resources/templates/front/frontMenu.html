@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="templates/index.html :: headFiles"></div>
+    <title>Menu</title>
+</head>
+<body>
+
+<nav th:replace="templates/index.html :: navBar"></nav>
+<!--    START HERE-->
+<p class="headers">A Bite To Die For</p>
+
+
+<div class="container">
+    <ul class="nav nav-fill nav-pills">
+        <li th:each="n : ${name}"  class="nav-item mr-2">
+            <a th:text="${n.type}" th:href="@{/menu(id=${n.id})}" class="nav-link active" href="#">Link 1</a>
+        </li>
+
+    </ul>
+</div>
+
+<br>
+<br>
+
+<!--the Table-->
+<div class="container mb-5">
+    <div class="row">
+        <div  class="col-sm-4 mb-3" th:each="it : ${items}">
+            <div class="card">
+                <img style="height:300px"  class="card-img-top img-fluid" th:src="${it.imageUrl}" alt="Menu Image">
+                <div class="card-body">
+                    <h4 th:text="${it.name}" class="card-title text-center">Executive Chef Michael Reid </h4>
+                    <p th:text="${it.description}" class="card-text text-center">
+                        " I am devoted to making everything from scratch with the freshest seasonal
+                        ingredients obtained locally when possible.
+                    </p>
+                </div>
+                <div th:text=" '$' + ${it.price}" class="card-footer  text-center bg-primary text-white">
+                   $200
+                </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+        <!--END HERE-->
+
+
+        <div th:replace="templates/index.html :: footerr"></div>
+        <div th:replace="templates/index.html :: scriptss"></div>
+</body>
+</html>

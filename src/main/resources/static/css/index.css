@@ -1,0 +1,132 @@
+*{
+    margin: 0 ;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+html ,body{
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Lato' , 'Arial' , sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+   
+}
+/* 
+resuable contents */
+
+.headers{
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    color: #34495e;
+    margin: 20px;
+    margin-bottom: 30px;
+}
+
+
+
+
+/* this is for the nav */
+
+.navbar-brand img{
+    height: 60px;
+
+}
+
+.navbar{
+    background-color: #d6d6d6;
+    height: 70px;
+   
+}
+
+.putOutline{
+    border: double 3px gray;
+}
+
+
+/* this is the carosoel */
+
+.carousel ,  .d-block{
+    height: 88vh;
+    width: 100%;
+    
+}
+
+.carsoul-holder{
+    height: 88vh;
+   
+}
+
+/* this is for the team */
+.card-img-top{
+    height: 500px;
+   
+}
+
+/* this is for the review section */
+.reiew-holder{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reiew-holder img{
+    width: 120px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    height: 150px;
+    
+    
+
+    
+}
+
+.image-holder{
+    width: 190px;
+}
+.five-star{
+   color: gold;
+
+   
+}
+.starholder{
+    width: 30%;
+    margin: 0 auto;
+}
+
+/* this is for the footer */
+.footlinks{
+    display: inline;
+   right: 5px;
+}
+
+.social-media{
+    padding-left: 100px;
+    
+}
+
+.footer{
+    background-color: #d6d6d6;
+    height: 40px;
+     
+}
+
+.facebook:hover{
+    color: #3b579d;
+}
+.instagram:hover{
+    color: #bd39a6;
+}
+
+.twitter:hover{
+    color: #1ea1f1;
+}
+.foottext{
+    font-size: small;
+}

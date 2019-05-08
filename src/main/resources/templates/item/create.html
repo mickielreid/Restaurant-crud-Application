@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="item/item-template.html :: headFiles"></div>
+    <title>Create New Menu Item</title>
+</head>
+<body>
+
+<nav th:replace="item/item-template.html :: navBar"></nav>
+<ul th:replace="item/item-template.html :: crud"></ul>
+<!--    START HERE-->
+<p class="headers">Create New Menu Item</p>
+
+<div class="container">
+    <form action="#" th:action="@{/item/create}" th:object="${menuItem}" method="post">
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" type="text" th:field="*{name}" placeholder="Name"/>
+             <div  th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"> </div>
+        </div> <!--New Field-->
+
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input class="form-control" type="text" th:field="*{description}" placeholder="Description"/>
+            <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger"></div>
+        </div> <!--New Field-->
+
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input class="form-control" type="number" th:field="*{price}" placeholder="Price"/>
+            <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="text-danger"></div>
+        </div> <!--New Field-->
+
+
+        <div class="form-group">
+            <label for="menuType.type">MenuType</label>
+            <select class="form-control" th:field="*{menuType.type}">
+                <option th:each="mtype : ${type}" th:value="${mtype.type}" th:text="${mtype.type}">2</option>
+            </select>
+            <div th:if="${#fields.hasErrors('menuType.type')}" th:errors="*{menuType.type}" class="text-danger"></div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="active">Gender</label>
+            <select class="form-control" id="active" th:field="*{active}">
+                <option value="true">true</option>
+                <option value="false">false</option>
+            </select>
+            <div th:if="${#fields.hasErrors('active')}" th:errors="*{active}" class="text-danger"></div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="imageUrl">Image Url</label>
+            <input class="form-control" type="text" th:field="*{imageUrl}" placeholder="imageUrl"/>
+            <div th:if="${#fields.hasErrors('imageUrl')}" th:errors="*{imageUrl}" class="text-danger"></div>
+        </div> <!--New Field-->
+
+
+        <button class="btn btn-primary btn-block" type="submit">New Meal</button>
+
+    </form>
+</div>
+<!--END HERE-->
+<div class="my-5"></div>
+<div th:replace="item/item-template.html :: footerr"></div>
+<div th:replace="item/item-template.html :: scriptss"></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="type/type-template.html :: headFiles"></div>
+    <title>All Menu Type</title>
+</head>
+<body>
+
+<nav th:replace="type/type-template.html :: navBar"></nav>
+<ul th:replace="type/type-template.html :: crud"></ul>
+<!--    START HERE-->
+
+<div class="container">
+
+    <form th:action="@{/type/add-type}" th:object="${menuType}" method="post">
+
+        <div class="form-group">
+            <label for="type">Type Name</label>
+            <input class="form-control" type="text" th:field="*{type}" placeholder="Type"/>
+            <div th:if="${#fields.hasErrors('type')}" th:errors="*{type}" class="text-danger"></div>
+        </div> <!--New Field-->
+
+
+        <button class="btn btn-primary btn-block" type="submit">New MenuType</button>
+
+    </form>
+</div>
+
+<!--END HERE-->
+<div class="my-5"></div>
+<div th:replace="type/type-template.html :: footerr"></div>
+<div th:replace="type/type-template.html :: scriptss"></div>
+</body>
+</html>
