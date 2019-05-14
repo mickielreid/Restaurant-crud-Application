@@ -2,10 +2,8 @@ package com.mic.luxemain.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -15,7 +13,7 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
-public class MenuItem {
+public class MenuItem extends AuditingDomain{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

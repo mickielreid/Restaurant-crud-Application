@@ -8,7 +8,6 @@ import com.mic.luxemain.domain.MenuType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -26,11 +25,22 @@ public class MenuPageControllerService {
         //getting the type accoited with the clicked menuType in the nav nav from
         Optional<MenuType> fetchedMenuType = typeRepository.findById(id);
 
+        List<MenuItem> allActiveMenuItem = new LinkedList<>();
+
+
+
+
+        //if it is empty it will throw an exception
+        if(!fetchedMenuType.isPresent()){
+            return  allActiveMenuItem;
+
+        }
+
         //this is getting all the menu item baced on the menutype above
         List<MenuItem> fetchedMenuItem = itemRepository.findAllByMenuType(fetchedMenuType.get());
 
 
-        List<MenuItem> allActiveMenuItem = new LinkedList<>();
+
 
         //if it is active it will be added to the list above
         for(MenuItem i : fetchedMenuItem){

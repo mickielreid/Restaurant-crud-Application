@@ -9,13 +9,11 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 
 @NoArgsConstructor
 @Data
 @Entity
-public class DailyMeal {
+public class DailyMeal extends AuditingDomain{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

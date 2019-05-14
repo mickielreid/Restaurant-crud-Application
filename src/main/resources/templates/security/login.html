@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="special/special-template.html:: headFiles"></div>
+    <title>Login For Admin</title>
+</head>
+<body>
+
+<nav th:replace="templates/index.html :: navBar"></nav>
+<!--    START HERE-->
+<p class="headers">Login</p>
+<br>
+<br>
+<p class="text-danger h4 text-center">You Must An Admin to Login </p>
+
+
+<div class="container">
+    <form th:action="@{/login}" method="post" id="loginForm">
+        <div th:if="${param.error}">
+            <div class="alert alert-danger">
+                Invalid username or password.
+            </div>
+        </div> <!--If the login is denied-->
+
+        <div class="form-group">
+            <label for="username">Login</label>
+            <input class="form-control"  type="text" name="username" id="username"/>
+        </div> <!--New Field-->
+
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input  class="form-control" type="password" name="password" id="password"/>
+        </div> <!--New Field-->
+
+
+        <button class="btn btn-primary btn-block" type="submit">Login</button>
+
+    </form>
+</div>
+<!--END HERE-->
+<div class="my-5"></div>
+<div th:replace="special/special-template.html :: footerr"></div>
+<div th:replace="special/special-template.html :: scriptss"></div>
+</body>
+</html>

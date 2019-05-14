@@ -3,16 +3,15 @@ package com.mic.luxemain.controller;
 import com.mic.luxemain.Repository.MenuTypeRepository;
 import com.mic.luxemain.domain.MenuType;
 import com.mic.luxemain.service.MenuTypeService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import javafx.scene.control.Menu;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.swing.text.html.Option;
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/type")

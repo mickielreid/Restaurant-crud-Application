@@ -2,7 +2,6 @@ package com.mic.luxemain.controller;
 
 import com.mic.luxemain.Repository.DailyMealRepository;
 import com.mic.luxemain.domain.DailyMeal;
-import com.mic.luxemain.domain.MenuItem;
 import com.mic.luxemain.service.DailyMealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

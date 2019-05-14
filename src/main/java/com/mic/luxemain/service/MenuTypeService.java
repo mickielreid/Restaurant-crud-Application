@@ -4,8 +4,6 @@ import com.mic.luxemain.Repository.MenuTypeRepository;
 import com.mic.luxemain.domain.MenuType;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class MenuTypeService {
 

@@ -53,7 +53,13 @@
                     <a class="nav-link" th:href="@{/type/list-all}">Menu Type</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/make-res}">Logout</a>
+<!--                   <a class="nav-link" th:href="@{/make-res}">Logout</a>-->
+
+                    <form method="POST" th:action="@{/logout}" id="logoutForm">
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit">Logout</button>
+                        </div> <!--New Field-->
+                    </form>
                 </li>
             </ul>
         </div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="templates/index.html :: headFiles"></div>
+    <title>Menu Exception</title>
+</head>
+<body class="bg-light h-50 mx-auto">
+
+<nav th:replace="templates/index.html :: navBar"></nav>
+<!--    START HERE-->
+<h6 class="text-center text-danger my-5" th:text="${msg}"></h6>
+<div class="container text-center " style="margin-bottom: 50vh;">
+    <button class="btn btn-primary ">
+        <a class="text-white nav-link" href="/home">To Home Page</a>
+
+    </button>
+</div>
+
+<!--END HERE-->
+<div th:replace="templates/index.html :: footerr"></div>
+<div th:replace="templates/index.html :: scriptss"></div>
+</body>
+</html>

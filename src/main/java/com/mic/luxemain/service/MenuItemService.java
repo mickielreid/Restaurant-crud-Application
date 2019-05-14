@@ -6,7 +6,6 @@ import com.mic.luxemain.domain.MenuItem;
 import com.mic.luxemain.domain.MenuType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.BindingResult;
 
 import java.util.HashMap;
 import java.util.List;
